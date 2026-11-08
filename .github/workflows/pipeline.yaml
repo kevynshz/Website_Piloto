@@ -1,0 +1,23 @@
+name: Pipeline do Website Piloto
+
+# Executa quando as alterações são enviadas ao GitHub.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código do repositório
+        uses: actions/checkout@v6
+
+      - name: Conferir os arquivos do site
+        run: |
+          test -s base.html
+          test -s base.css
+          echo "Arquivos do site encontrados e não vazios. Pipeline concluída!"
