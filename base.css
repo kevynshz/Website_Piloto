@@ -736,7 +736,7 @@ input {
 .account-actions {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
   margin-top: 32px;
   width: 235px;
   max-width: 100%
