@@ -6,6 +6,8 @@
 <meta name="description" content="Eva: um espaço simples para compartilhar ideias.">
 <title>Eva — boas ideias se encontram</title>
 <link rel="stylesheet" href="base.css">
+<script src="usuarios.js" defer></script>
+<script src="conta.js" defer></script>
 </head>
 <body>
 <section id="feed" class="app" aria-label="Feed da comunidade">
@@ -33,9 +35,27 @@
 </section>
 <main class="login">
 <header><a class="logo" href="#">Eva<span>✳</span></a><span>UM LUGAR PARA SE ENCONTRAR.</span></header>
-<div class="intro"><span class="eyebrow">● &nbsp; CONVERSAS QUE APROXIMAM</span><h1>Boas ideias.<br>Novos <em>Eva</em></h1><p>Compartilhe um pensamento, descubra outras<br>perspectivas e faça parte da conversa.</p><a class="button enter" href="#feed">Entrar no Eva <span>↗</span></a><small>Sem cadastro. Entre como visitante para explorar.</small></div>
+<div class="intro"><span class="eyebrow">● &nbsp; CONVERSAS QUE APROXIMAM</span><h1>Boas ideias.<br>Novos <em>Eva</em></h1><p>Compartilhe um pensamento, descubra outras<br>perspectivas e faça parte da conversa.</p>
+<div class="account-actions"><button class="button" type="button" data-conta="entrar">Entrar ↗</button><button class="button secondary" type="button" data-conta="cadastrar">Criar conta</button></div>
+<a class="guest-link" href="#feed">Explorar como visitante →</a><small>Contas salvas somente neste navegador. Use dados fictícios.</small></div>
 <div class="art" aria-hidden="true"><div class="orbit"></div><div class="orbit second"></div><span>✳</span><small>CADA IDEIA É UM PONTO DE ENCONTRO.</small></div>
 <footer><span>Um pouco menos de ruído. Um pouco mais de você.</span><span>© 2026 Eva</span></footer>
 </main>
+<dialog id="conta-dialog" aria-labelledby="conta-titulo">
+  <button class="dialog-close" type="button" aria-label="Fechar">×</button>
+  <h2 id="conta-titulo">Entrar no Eva</h2>
+  <p id="conta-ajuda">Use a conta cadastrada neste navegador.</p>
+  <form id="conta-form">
+    <label for="conta-usuario">Usuário</label>
+    <input id="conta-usuario" name="usuario" required minlength="3" maxlength="30" pattern="[a-zA-Z0-9_]{3,30}" autocomplete="username" autocapitalize="none" spellcheck="false" aria-describedby="usuario-ajuda">
+    <small id="usuario-ajuda">3 a 30 letras, números ou sublinhados.</small>
+    <label for="conta-senha">Senha</label>
+    <input id="conta-senha" name="senha" type="password" required autocomplete="current-password" aria-describedby="senha-ajuda">
+    <small id="senha-ajuda">No cadastro, use ao menos 12 caracteres.</small>
+    <p id="conta-mensagem" role="status" aria-live="polite"></p>
+    <button class="button" id="conta-enviar" type="submit">Entrar</button>
+  </form>
+  <button class="mode-switch" type="button" id="conta-alternar">Ainda não tem conta? Criar conta</button>
+</dialog>
 </body>
 </html>
