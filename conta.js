@@ -27,17 +27,24 @@
   }
 
   function atualizarPerfil(nome) {
-    document.querySelector('.account strong').textContent = nome || 'Visitante';
-    document.querySelector('.account small').textContent = nome ? `@${nome} · Sair ↗` : '@visitante · Voltar ↗';
-    document.querySelector('.account').setAttribute('aria-label', nome ? 'Sair da conta' : 'Voltar para entrada');
+    const perfil = nome ? window.usuariosDemo.obterUsuario(nome) : null;
+    document.querySelector('.account strong').textContent = perfil?.nome || 'Visitante';
+    document.querySelector('.account small').textContent = nome ? `@${nome} · Editar perfil ↗` : '@visitante · Meu perfil ↗';
+    document.querySelector('.account').setAttribute('aria-label', nome ? 'Editar meu perfil' : 'Abrir meu perfil');
+    document.querySelector('#conta-sair').hidden = !nome;
     document.querySelectorAll('.account .avatar, .composer > .avatar').forEach((avatar) => {
       avatar.textContent = nome ? nome[0].toUpperCase() : 'V';
     });
-    document.querySelector('#perfil h2').textContent = `Olá, ${nome || 'visitante'}.`;
+    document.querySelector('#perfil h2').textContent = `Olá, ${perfil?.nome || 'visitante'}.`;
     document.querySelector('#perfil p').textContent = nome
-      ? 'Esta é sua conta local de demonstração neste navegador.'
+      ? perfil.bio || 'Esta é sua conta local de demonstração neste navegador.'
       : 'Este é seu perfil de demonstração. Explore e fique à vontade.';
+    window.dispatchEvent(new Event('conta-alterada'));
   }
+
+  window.addEventListener('perfil-alterado', () => {
+    atualizarPerfil(localStorage.getItem(chaveSessao));
+  });
 
   document.querySelectorAll('[data-conta]').forEach((botao) => {
     botao.addEventListener('click', () => {
@@ -83,6 +90,16 @@
 
   document.querySelector('.account').addEventListener('click', (evento) => {
     evento.preventDefault();
+    window.location.hash = 'perfil';
+    requestAnimationFrame(() => {
+      const campo = document.querySelector('#perfil-nome');
+      if (!document.querySelector('#perfil-form').hidden) campo.focus();
+      document.querySelector('#perfil').scrollIntoView({ block: 'start' });
+    });
+  });
+
+  document.querySelector('#conta-sair').addEventListener('click', (evento) => {
+    evento.preventDefault();
     try {
       localStorage.removeItem(chaveSessao);
     } catch {
@@ -93,7 +110,8 @@
     window.location.hash = '';
   });
   try {
-    const nome = localStorage.getItem(chaveSessao);
+    const salvo = localStorage.getItem(chaveSessao);
+    const nome = salvo ? window.usuariosDemo.obterUsuario(salvo)?.usuario : null;
     atualizarPerfil(nome);
   } catch {
     atualizarPerfil(null);

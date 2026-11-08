@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="base.css">
 <script src="usuarios.js" defer></script>
 <script src="conta.js" defer></script>
+<script src="publicacoes.js" defer></script>
+<script src="comunidade.js" defer></script>
 </head>
 <body>
 <section id="feed" class="app" aria-label="Feed da comunidade">
@@ -15,7 +17,7 @@
 <a class="logo" href="#" aria-label="Voltar para entrada">Eva<span>✳</span></a>
 <nav aria-label="Navegação"><a class="selected" href="#feed">⌂ <span>Página inicial</span></a><a href="#explorar"># <span>Explorar</span></a><a href="#perfil">◉ <span>Meu perfil</span></a></nav>
 <a class="button" href="#escrever">Escrever uma ideia ↗</a>
-<a class="account" href="#"><span class="avatar green">V</span><span><strong>Visitante</strong><small>@visitante · Sair ↗</small></span></a>
+<a class="account" href="#perfil" aria-label="Abrir meu perfil"><span class="avatar green">V</span><span><strong>Visitante</strong><small>@visitante · Editar perfil ↗</small></span></a>
 </aside>
 <main class="timeline">
 <header class="feed-header"><small>SEU CANTO NA INTERNET</small><h1>Página inicial <span>✳</span></h1></header>
@@ -29,7 +31,14 @@
 <aside class="right">
 <section id="explorar"><small>VALE A CONVERSA</small><h2>Em pauta ↗</h2><div class="trend"><small>CRIATIVIDADE</small><strong>#DesignSimples</strong><span>128 pessoas conversando</span></div><div class="trend"><small>COTIDIANO</small><strong>#PequenasCoisas</strong><span>86 pessoas conversando</span></div><div class="trend"><small>TECNOLOGIA</small><strong>#IdeiasQueConectam</strong><span>64 pessoas conversando</span></div></section>
 <section class="note"><span>✳</span><h2>Menos ruído.<br>Mais conexão.</h2><p>Um espaço para ideias de verdade, no seu tempo.</p></section>
-<section id="perfil" class="profile"><h2>Olá, visitante.</h2><p>Este é seu perfil de demonstração. Explore e fique à vontade.</p></section>
+<section id="perfil" class="profile"><h2>Olá, visitante.</h2><p>Este é seu perfil de demonstração. Explore e fique à vontade.</p>
+<form id="perfil-form">
+<label for="perfil-nome">Nome de exibição</label>
+<input id="perfil-nome" name="nome" maxlength="50" required>
+<label for="perfil-bio">Biografia</label>
+<textarea id="perfil-bio" name="bio" maxlength="160" rows="3"></textarea>
+<button class="button" type="submit">Salvar perfil</button>
+</form><p id="perfil-status" role="status"></p><button id="conta-sair" class="button secondary" type="button" hidden>Sair da conta</button></section>
 <p class="credits">Eva © 2026 · Feito para conectar.<br>Interface de demonstração em HTML + CSS.</p>
 </aside>
 </section>

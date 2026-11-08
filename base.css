@@ -847,3 +847,53 @@ input {
   opacity: .6;
   cursor: wait
 }
+
+/* Publicações, comentários e edição de perfil */
+.composer .button:not(:disabled) {
+  opacity: 1;
+  cursor: pointer;
+}
+.post-texto, .comentarios p, #perfil > p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.comentarios {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  margin-top: 18px;
+}
+.comentarios > strong {
+  font-size: 11px;
+  color: var(--green);
+}
+.comentario-form, #perfil-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+#perfil-form[hidden] {
+  display: none;
+}
+.comentario-form textarea, #perfil-form input, #perfil-form textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  color: var(--ink);
+  resize: vertical;
+}
+.comentario-form .button, #perfil-form .button {
+  justify-content: center;
+  padding: 10px 14px;
+}
+.comentario-form button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+#conta-sair[hidden] {
+  display: none;
+}
