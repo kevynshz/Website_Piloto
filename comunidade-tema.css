@@ -1,0 +1,209 @@
+/* Temas apenas da comunidade e dos formulários: a entrada mantém sua fotografia. */
+.app, #conta-dialog {
+  --paper: #171a19;
+  --surface: #202422;
+  --surface-soft: #272c28;
+  --ink: #f0eee6;
+  --muted: #b0b6ac;
+  --line: #ffffff1c;
+  --gold: #c6b58f;
+  --green: #ddd2b9;
+  --pale: #30362f;
+  --button-ink: #20251f;
+  color-scheme: dark;
+  color: var(--ink);
+  background: var(--paper);
+}
+[data-tema="claro"] .app, [data-tema="claro"] #conta-dialog {
+  --paper: #f1efe9;
+  --surface: #fcfbf7;
+  --surface-soft: #e8e4d9;
+  --ink: #2b302b;
+  --muted: #656b61;
+  --line: #333a291f;
+  --gold: #806c45;
+  --green: #303b30;
+  --pale: #e3e5da;
+  --button-ink: #fffdf5;
+  color-scheme: light;
+}
+.app .sidebar, .app .topbar {
+  background: var(--paper);
+  border-color: var(--line);
+}
+.app .sidebar {
+  background: var(--surface);
+}
+.app .sidebar nav a {
+  color: var(--muted);
+}
+.app .sidebar nav a:hover, .app .sidebar nav a[aria-current] {
+  color: var(--ink);
+  background: var(--pale);
+}
+.app .sidebar nav a[aria-current] {
+  box-shadow: inset 2px 0 var(--gold);
+}
+.app .nav-caption, .app .residence-label, .app .sidebar-note small,
+.app .account small, .app .breadcrumb-divider {
+  color: var(--muted);
+}
+.app .nav-count {
+  color: var(--gold);
+  background: var(--surface-soft);
+}
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 38px;
+  padding: 7px 13px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-size: 10px;
+  letter-spacing: .4px;
+}
+.theme-toggle:hover {
+  border-color: var(--gold);
+  background: var(--surface-soft);
+}
+.theme-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+.app .feed-header {
+  padding: 6px 0 4px;
+}
+.app .feed-header h1 {
+  font-size: clamp(32px, 3.2vw, 49px);
+  font-weight: 400;
+  margin-block: 13px;
+}
+.app .community-hero {
+  min-height: 330px;
+  border-radius: 0;
+  background-image: linear-gradient(90deg, #111a20bd, #111a2025), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1300&q=85');
+}
+.app .hero-overlay {
+  padding: 43px 35px;
+}
+.app .hero-overlay h2 {
+  font-size: clamp(33px, 3.5vw, 51px);
+  letter-spacing: -1px;
+  margin: 24px 0;
+}
+.app .section-heading {
+  margin-top: 38px;
+}
+.app .section-heading h2 {
+  font-size: 28px;
+}
+.app .composer, .app .post, .app .notice-panel, .app .life-panel, .app .profile {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0;
+}
+.app .post {
+  padding-block: 28px;
+}
+.app .post header strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.app .post p {
+  font-size: 13px;
+  line-height: 1.95;
+}
+.app .compose-footer {
+  border-color: var(--line);
+}
+.app .composer textarea {
+  color: var(--ink);
+}
+.app textarea::placeholder {
+  color: var(--muted);
+  opacity: .85;
+}
+.app .quote, .app .concierge-card, .app .post-tag {
+  background: var(--surface-soft);
+  color: var(--ink);
+  border-radius: 0;
+}
+.app .quote > span, .app .quote small, .app .post-tag,
+.app .concierge-card > span, .app .amenity > span {
+  color: var(--gold);
+}
+.app .concierge-card p, .app .credits, .app .notice-signature {
+  color: var(--muted);
+}
+.app .button, #conta-dialog .button {
+  border-color: var(--green);
+  background: var(--green);
+  color: var(--button-ink);
+  border-radius: 0;
+}
+.app .button:hover:not(:disabled), #conta-dialog .button:hover:not(:disabled) {
+  filter: brightness(1.12);
+}
+.app .secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.app input, .app .comentario-form textarea, .app #perfil-form textarea,
+#conta-dialog input {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--line);
+  border-radius: 0;
+}
+.app .green {
+  background: var(--surface-soft);
+  color: var(--gold);
+}
+.app .comentario-form p, .app #perfil-status, #conta-mensagem {
+  color: var(--gold);
+}
+.app .panel-heading > span {
+  border-color: var(--line);
+}
+.app .panel-heading h2, .app .life-panel h2 {
+  font-size: 25px;
+}
+#conta-dialog .mode-switch {
+  color: var(--ink);
+}
+@media (max-width: 950px) {
+  .app .community-hero {
+    min-height: 300px;
+  }
+}
+@media (max-width: 650px) {
+  .topbar-actions {
+    gap: 10px;
+  }
+  .theme-label, .topbar-notice {
+    display: none;
+  }
+  .theme-toggle {
+    width: 38px;
+    min-height: 38px;
+    padding: 4px;
+  }
+  .app .hero-overlay {
+    padding: 30px 23px;
+  }
+  .app .community-hero {
+    min-height: 285px;
+  }
+  .app .section-heading h2 {
+    font-size: 25px;
+  }
+}

@@ -14,7 +14,7 @@
   function configurar(novoModo) {
     modo = novoModo;
     const cadastro = modo === 'cadastrar';
-    document.querySelector('#conta-titulo').textContent = cadastro ? 'Criar sua conta' : 'Entrar no Aurora';
+    document.querySelector('#conta-titulo').textContent = cadastro ? 'Criar sua conta' : 'Entrar na comunidade';
     document.querySelector('#conta-ajuda').textContent = cadastro
       ? 'Sua conta ficará salva somente neste navegador. Use uma senha fictícia.'
       : 'Use a conta cadastrada neste navegador.';
@@ -37,7 +37,7 @@
     });
     document.querySelector('#perfil h2').textContent = `Olá, ${perfil?.nome || 'visitante'}.`;
     document.querySelector('#perfil p').textContent = nome
-      ? perfil.bio || 'Seu espaço na comunidade Aurora. Conte um pouco sobre você na biografia.'
+      ? perfil.bio || 'Seu espaço na comunidade. Conte um pouco sobre você na biografia.'
       : 'Entre na comunidade para personalizar seu perfil.';
     window.dispatchEvent(new Event('conta-alterada'));
   }
