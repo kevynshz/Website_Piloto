@@ -3,34 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Eva: um espaço simples para compartilhar ideias.">
-<title>Eva — boas ideias se encontram</title>
+<meta name="description" content="Aurora Residences — seu endereço, sua comunidade. Conversas, encontros e avisos do condomínio em um só lugar.">
+<title>Aurora Residences · Comunidade</title>
 <link rel="stylesheet" href="base.css">
 <script src="usuarios.js" defer></script>
 <script src="conta.js" defer></script>
 <script src="publicacoes.js" defer></script>
 <script src="comunidade.js" defer></script>
+<script src="residences.js" defer></script>
 </head>
 <body>
-<section id="feed" class="app" aria-label="Feed da comunidade">
+<section id="feed" class="app" aria-label="Comunidade Aurora Residences">
 <aside class="sidebar">
-<a class="logo" href="#" aria-label="Voltar para entrada">Eva<span>✳</span></a>
-<nav aria-label="Navegação"><a class="selected" href="#feed">⌂ <span>Página inicial</span></a><a href="#explorar"># <span>Explorar</span></a><a href="#perfil">◉ <span>Meu perfil</span></a></nav>
-<a class="button" href="#escrever">Escrever uma ideia ↗</a>
-<a class="account" href="#perfil" aria-label="Abrir meu perfil"><span class="avatar green">V</span><span><strong>Visitante</strong><small>@visitante · Editar perfil ↗</small></span></a>
+<a class="brand" href="#" aria-label="Aurora Residences, início"><span class="brand-symbol">A</span><span>AURORA<small>RESIDENCES</small></span></a>
+<div class="residence-label"><span class="status-dot"></span> SEU LUGAR NO MUNDO</div>
+<p class="nav-caption">ESPAÇO DO MORADOR</p>
+<nav aria-label="Navegação da comunidade">
+<a href="#feed" data-nav="feed"><span class="nav-icon">⌂</span> Comunidade</a>
+<a href="#avisos" data-nav="avisos"><span class="nav-icon">◷</span> Mural de avisos <span class="nav-count">02</span></a>
+<a href="#explorar" data-nav="explorar"><span class="nav-icon">◇</span> Vida no Aurora</a>
+<a href="#perfil" data-nav="perfil"><span class="nav-icon">◎</span> Meu perfil</a>
+</nav>
+<a class="button sidebar-compose" href="#escrever">＋ &nbsp; Nova publicação</a>
+<div class="sidebar-note"><span>UM NOVO JEITO DE MORAR</span><p>O privilégio de pertencer.</p><small>Conexões que começam<br>bem perto de casa.</small></div>
+<a class="account" href="#perfil" aria-label="Editar meu perfil"><span class="avatar green">V</span><span><strong>Visitante</strong><small>Meu perfil ↗</small></span><span class="account-arrow">↗</span></a>
 </aside>
+<div class="workspace">
+<header class="topbar"><div><span class="breadcrumb">AURORA RESIDENCES</span><span class="breadcrumb-divider">/</span><span>Comunidade</span></div><a href="#avisos" class="topbar-notice"><span class="status-dot"></span> Mural do condomínio ↗</a></header>
+<div class="dashboard">
 <main class="timeline">
-<header class="feed-header"><small>SEU CANTO NA INTERNET</small><h1>Página inicial <span>✳</span></h1></header>
-<div class="tabs"><strong>Para você</strong><span>Uma seleção de boas conversas</span></div>
-<section id="escrever" class="composer"><span class="avatar green">V</span><div><label for="idea">O que está passando por aí?</label><textarea id="idea" rows="2" maxlength="280" placeholder="Uma ideia, uma descoberta, um pequeno momento…"></textarea><div class="compose-footer"><small>Demonstração · envio indisponível</small><button class="button" disabled>Publicar ↗</button></div></div></section>
-<article class="post"><span class="avatar peach">MC</span><div><header><strong>Marina Costa</strong><span>@marinac · 12 min</span></header><p>A melhor parte de começar algo novo é lembrar que não precisa estar perfeito. Só precisa existir.</p><p>Um lembrete para esta sexta. ☀</p><footer><span>♡ 24 curtidas</span><span>↳ 6 respostas</span><span>↗</span></footer></div></article>
-<article class="post"><span class="avatar purple">RL</span><div><header><strong>Rafael Lima</strong><span>@rafael · 38 min</span></header><p>Menos abas abertas. Mais tempo para uma boa ideia.</p><div class="quote"><small>NOTAS DO DIA / 001</small><blockquote>O simples também<br>pode ser extraordinário.</blockquote><small>UM POUCO DE ESPAÇO PARA PENSAR ↗</small></div><footer><span>♡ 48 curtidas</span><span>↳ 12 respostas</span><span>↗</span></footer></div></article>
-<article class="post"><span class="avatar blue">BA</span><div><header><strong>Bia Alves</strong><span>@biaa · 1 h</span></header><p>Pequena felicidade do dia: café fresco, janela aberta e uma playlist que acerta todas. Qual foi a sua?</p><footer><span>♡ 19 curtidas</span><span>↳ 8 respostas</span><span>↗</span></footer></div></article>
-<p class="feed-end">Você está em dia. Respira um pouco. ✳</p>
+<header class="feed-header"><div class="eyebrow">CONEXÕES QUE FAZEM PARTE DE CASA</div><h1>Bem-vindo ao seu lugar.</h1><p>A vida no Aurora acontece também por aqui.</p></header>
+<section class="community-hero"><div class="hero-overlay"><span class="light-eyebrow">AURORA · LIVING TOGETHER</span><h2>Mais que um endereço.<br>Um jeito de viver.</h2><a href="#explorar">Descubra a vida no Aurora <span>↗</span></a></div><span class="hero-caption">ARQUITETURA PARA VIVER BEM</span></section>
+<div class="section-heading"><div><span class="eyebrow">NOSSO DIA A DIA</span><h2>Conversas da comunidade</h2></div><span class="live-label"><span class="status-dot"></span> Mural dos moradores</span></div>
+<section id="escrever" class="composer"><span class="avatar green">V</span><div><label for="idea">O que você quer compartilhar com seus vizinhos?</label><textarea id="idea" rows="2" maxlength="280" placeholder="Uma boa indicação, uma ideia ou um convite…"></textarea><div class="compose-footer"><small>Entre para participar da comunidade.</small><button class="button" disabled>Publicar <span>↗</span></button></div></div></section>
+<article class="post"><span class="avatar peach">MC</span><div><header><strong>Marina Costa</strong><span>Moradora · Publicação de exemplo</span></header><span class="post-tag">ENTRE VIZINHOS</span><p>Acabamos de chegar ao Aurora e já estamos nos sentindo em casa. Alguém tem uma boa indicação de café pelo bairro? Vamos adorar conhecer nossos novos vizinhos. ☕</p></div></article>
+<article class="post"><span class="avatar purple">RL</span><div><header><strong>Rafael Lima</strong><span>Morador · Publicação de exemplo</span></header><span class="post-tag">BEM-ESTAR</span><p>Que tal começarmos um grupo de caminhada pela manhã? Pensei em nos encontrarmos no jardim para aproveitar o início do dia. Quem anima?</p><div class="quote"><span>PEQUENOS RITUAIS, GRANDES ENCONTROS</span><blockquote>A melhor vista é<br>uma boa companhia.</blockquote><small>JARDINS DO AURORA</small></div></div></article>
+<article class="post"><span class="avatar blue">BA</span><div><header><strong>Bia Alves</strong><span>Moradora · Publicação de exemplo</span></header><span class="post-tag">BOAS DESCOBERTAS</span><p>O pôr do sol visto do lounge é especial. Deixo o convite para quem quiser fazer uma pausa e conhecer a vizinhança. Nos vemos por lá?</p></div></article>
+<p class="feed-end">◇ &nbsp; Bons encontros começam em casa.</p>
 </main>
 <aside class="right">
-<section id="explorar"><small>VALE A CONVERSA</small><h2>Em pauta ↗</h2><div class="trend"><small>CRIATIVIDADE</small><strong>#DesignSimples</strong><span>128 pessoas conversando</span></div><div class="trend"><small>COTIDIANO</small><strong>#PequenasCoisas</strong><span>86 pessoas conversando</span></div><div class="trend"><small>TECNOLOGIA</small><strong>#IdeiasQueConectam</strong><span>64 pessoas conversando</span></div></section>
-<section class="note"><span>✳</span><h2>Menos ruído.<br>Mais conexão.</h2><p>Um espaço para ideias de verdade, no seu tempo.</p></section>
+<section id="avisos" class="notice-panel"><div class="panel-heading"><h2>Mural de avisos</h2><span>02</span></div><p class="panel-subtitle">Fique por dentro do condomínio</p><div class="notice"><span class="notice-type">COMUNICADO · EXEMPLO</span><h3>Seu novo ponto de encontro</h3><p>Este é o espaço para acompanhar novidades, orientações e comunicados da administração.</p><span class="notice-signature">ADMINISTRAÇÃO AURORA</span></div><div class="notice"><span class="notice-type">BOA CONVIVÊNCIA · EXEMPLO</span><h3>Um cuidado que é de todos</h3><p>Ao utilizar os espaços compartilhados, deixe tudo pronto para o próximo vizinho.</p><span class="notice-signature">VIVER BEM, JUNTOS</span></div></section>
+<section id="explorar" class="life-panel"><span class="eyebrow">SEU CONDOMÍNIO</span><h2>Espaços para<br>criar memórias.</h2><div class="amenity-photo" role="img" aria-label="Piscina de uma residência contemporânea"></div><div class="amenity"><span>01</span><div><strong>Lounge & convivência</strong><small>Uma pausa com boa companhia</small></div><span>↗</span></div><div class="amenity"><span>02</span><div><strong>Jardins & bem-estar</strong><small>Mais natureza no seu dia</small></div><span>↗</span></div><p class="spaces-note">Inspirações para o projeto de demonstração.</p></section>
 <section id="perfil" class="profile"><h2>Olá, visitante.</h2><p>Este é seu perfil de demonstração. Explore e fique à vontade.</p>
 <form id="perfil-form">
 <label for="perfil-nome">Nome de exibição</label>
@@ -39,20 +52,21 @@
 <textarea id="perfil-bio" name="bio" maxlength="160" rows="3"></textarea>
 <button class="button" type="submit">Salvar perfil</button>
 </form><p id="perfil-status" role="status"></p><button id="conta-sair" class="button secondary" type="button" hidden>Sair da conta</button></section>
-<p class="credits">Eva © 2026 · Feito para conectar.<br>Interface de demonstração em HTML + CSS.</p>
+<div class="concierge-card"><span>AO SEU REDOR</span><h3>Uma comunidade.<br>Infinitas possibilidades.</h3><p>Compartilhe suas descobertas e faça parte da vida do Aurora.</p><a href="#escrever">Comece uma conversa ↗</a></div>
+<footer class="credits">AURORA RESIDENCES<br>Comunidade de demonstração · Dados locais<br>© 2026 · Feito para pertencer.</footer>
 </aside>
+</div>
+</div>
 </section>
 <main class="login">
-<header><a class="logo" href="#">Eva<span>✳</span></a><span>UM LUGAR PARA SE ENCONTRAR.</span></header>
-<div class="intro"><span class="eyebrow">● &nbsp; CONVERSAS QUE APROXIMAM</span><h1>Um pensamento.<br>Novo <em>Eva</em></h1><p>Compartilhe um pensamento, descubra outras<br>perspectivas e faça parte da conversa.</p>
-<div class="account-actions"><button class="button" type="button" data-conta="entrar">Entrar ↗</button><button class="button secondary" type="button" data-conta="cadastrar">Criar conta</button></div>
-<a class="guest-link" href="#feed">Explorar como visitante →</a><small>Contas salvas somente neste navegador. Use dados fictícios.</small></div>
-<div class="art" aria-hidden="true"><div class="orbit"></div><div class="orbit second"></div><span>✳</span><small>CADA IDEIA É UM PONTO DE ENCONTRO.</small></div>
-<footer><span>Um pouco menos de ruído. Um pouco mais de você.</span><span>© 2026 Eva</span></footer>
+<div class="welcome-content"><header><a class="brand" href="#"><span class="brand-symbol">A</span><span>AURORA<small>RESIDENCES</small></span></a><span class="welcome-label">COMUNIDADE EXCLUSIVA</span></header>
+<div class="intro"><span class="eyebrow"><span class="status-dot"></span> SEU PRÓXIMO CAPÍTULO COMEÇA AQUI</span><h1>Seu endereço.<br>Seu refúgio.<br><em>Sua comunidade.</em></h1><p>Um lugar para se conectar com quem está perto.<br>Descubra as conversas, os encontros e os pequenos<br>privilégios de viver no Aurora.</p><div class="account-actions"><button class="button" type="button" data-conta="entrar">Entrar na comunidade <span>↗</span></button><button class="button secondary" type="button" data-conta="cadastrar">Criar minha conta <span>＋</span></button></div><a class="guest-link" href="#feed">Conhecer a comunidade como visitante ↗</a><small class="demo-note">Experiência de demonstração. Use dados fictícios.</small></div>
+<footer><span>VIVER BEM É PERTENCER.</span><span>AURORA © 2026</span></footer></div>
+<div class="welcome-image"><span class="image-label">UM NOVO OLHAR SOBRE MORAR.</span><div class="image-caption"><span>A ESSÊNCIA DO EXTRAORDINÁRIO</span><p>A vida encontra<br>seu melhor lugar.</p><div class="image-pagination"><i></i><i></i><i></i></div></div><span class="image-index">01 / AURORA LIVING</span></div>
 </main>
 <dialog id="conta-dialog" aria-labelledby="conta-titulo">
   <button class="dialog-close" type="button" aria-label="Fechar">×</button>
-  <h2 id="conta-titulo">Entrar no Eva</h2>
+  <h2 id="conta-titulo">Entrar no Aurora</h2>
   <p id="conta-ajuda">Use a conta cadastrada neste navegador.</p>
   <form id="conta-form">
     <label for="conta-usuario">Usuário</label>
