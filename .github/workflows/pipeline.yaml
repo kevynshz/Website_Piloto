@@ -16,6 +16,14 @@ jobs:
       - name: Baixar o código do repositório
         uses: actions/checkout@v6
 
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Testar API e persistência
+        run: npm test
+
       - name: Conferir os arquivos do site
         run: |
           test -s base.html

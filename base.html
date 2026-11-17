@@ -8,6 +8,7 @@
 <script src="tema.js"></script>
 <link rel="stylesheet" href="base.css">
 <link rel="stylesheet" href="comunidade-tema.css">
+<script src="api.js" defer></script>
 <script src="usuarios.js" defer></script>
 <script src="conta.js" defer></script>
 <script src="publicacoes.js" defer></script>
@@ -38,9 +39,6 @@
 <section class="community-hero"><div class="hero-overlay"><span class="light-eyebrow">MORAR. CONECTAR. PERTENCER.</span><h2>Mais que um endereço.<br>Um jeito de viver.</h2><a href="#explorar">Descubra nossos espaços <span>↗</span></a></div><span class="hero-caption">ARQUITETURA PARA VIVER BEM</span></section>
 <div class="section-heading"><div><span class="eyebrow">NOSSO DIA A DIA</span><h2>Conversas da comunidade</h2></div><span class="live-label"><span class="status-dot"></span> Mural dos moradores</span></div>
 <section id="escrever" class="composer"><span class="avatar green">V</span><div><label for="idea">O que você quer compartilhar com seus vizinhos?</label><textarea id="idea" rows="2" maxlength="280" placeholder="Uma boa indicação, uma ideia ou um convite…"></textarea><div class="compose-footer"><small>Entre para participar da comunidade.</small><button class="button" disabled>Publicar <span>↗</span></button></div></div></section>
-<article class="post"><span class="avatar peach">MC</span><div><header><strong>Marina Costa</strong><span>Moradora · Publicação de exemplo</span></header><span class="post-tag">ENTRE VIZINHOS</span><p>Acabamos de chegar por aqui e já estamos nos sentindo em casa. Alguém tem uma boa indicação de café pelo bairro? Vamos adorar conhecer nossos novos vizinhos. ☕</p></div></article>
-<article class="post"><span class="avatar purple">RL</span><div><header><strong>Rafael Lima</strong><span>Morador · Publicação de exemplo</span></header><span class="post-tag">BEM-ESTAR</span><p>Que tal começarmos um grupo de caminhada pela manhã? Pensei em nos encontrarmos no jardim para aproveitar o início do dia. Quem anima?</p><div class="quote"><span>PEQUENOS RITUAIS, GRANDES ENCONTROS</span><blockquote>A melhor vista é<br>uma boa companhia.</blockquote><small>ENCONTROS AO AR LIVRE</small></div></div></article>
-<article class="post"><span class="avatar blue">BA</span><div><header><strong>Bia Alves</strong><span>Moradora · Publicação de exemplo</span></header><span class="post-tag">BOAS DESCOBERTAS</span><p>O pôr do sol visto do lounge é especial. Deixo o convite para quem quiser fazer uma pausa e conhecer a vizinhança. Nos vemos por lá?</p></div></article>
 <p class="feed-end">◇ &nbsp; Bons encontros começam em casa.</p>
 </main>
 <aside class="right">
@@ -55,7 +53,7 @@
 <button class="button" type="submit">Salvar perfil</button>
 </form><p id="perfil-status" role="status"></p><button id="conta-sair" class="button secondary" type="button" hidden>Sair da conta</button></section>
 <div class="concierge-card"><span>AO SEU REDOR</span><h3>Uma comunidade.<br>Infinitas possibilidades.</h3><p>Compartilhe suas descobertas e faça parte da vida da comunidade.</p><a href="#escrever">Comece uma conversa ↗</a></div>
-<footer class="credits">ENTRE · COMUNIDADE<br>Comunidade de demonstração · Dados locais<br>© 2026 · Feito para pertencer.</footer>
+<footer class="credits">ENTRE · COMUNIDADE<br>Conversas e conexões entre moradores<br>© 2026 · Feito para pertencer.</footer>
 </aside>
 </div>
 </div>
@@ -82,7 +80,7 @@
 <dialog id="conta-dialog" aria-labelledby="conta-titulo">
   <button class="dialog-close" type="button" aria-label="Fechar">×</button>
   <h2 id="conta-titulo">Entrar na comunidade</h2>
-  <p id="conta-ajuda">Use a conta cadastrada neste navegador.</p>
+  <p id="conta-ajuda">Use sua conta para acessar a comunidade.</p>
   <form id="conta-form">
     <label for="conta-usuario">Usuário</label>
     <input id="conta-usuario" name="usuario" required minlength="3" maxlength="30" pattern="[a-zA-Z0-9_]{3,30}" autocomplete="username" autocapitalize="none" spellcheck="false" aria-describedby="usuario-ajuda">

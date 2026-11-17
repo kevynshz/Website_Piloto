@@ -1,0 +1,12 @@
+{
+  "name": "entre-comunidade",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Comunidade de moradores com API HTTP e persistência SQLite",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/index.mjs",
+    "dev": "node --env-file-if-exists=.env --watch server/index.mjs",
+    "test": "node --test tests/api.test.mjs"
+  }
+}

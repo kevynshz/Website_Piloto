@@ -1,4 +1,4 @@
-// Interface de demonstração local; não cria uma sessão autenticada no servidor.
+// A sessão é validada pela API e mantida em cookie HttpOnly.
 (() => {
   const dialog = document.querySelector('#conta-dialog');
   const form = document.querySelector('#conta-form');
@@ -7,7 +7,6 @@
   const mensagem = document.querySelector('#conta-mensagem');
   const enviar = document.querySelector('#conta-enviar');
   const alternar = document.querySelector('#conta-alternar');
-  const chaveSessao = 'eva.sessao.demo.v1';
   let modo = 'entrar';
   let ocupado = false;
 
@@ -16,8 +15,8 @@
     const cadastro = modo === 'cadastrar';
     document.querySelector('#conta-titulo').textContent = cadastro ? 'Criar sua conta' : 'Entrar na comunidade';
     document.querySelector('#conta-ajuda').textContent = cadastro
-      ? 'Sua conta ficará salva somente neste navegador. Use uma senha fictícia.'
-      : 'Use a conta cadastrada neste navegador.';
+      ? 'Crie uma conta para participar da comunidade.'
+      : 'Entre com seu usuário e senha.';
     enviar.textContent = cadastro ? 'Criar conta' : 'Entrar';
     alternar.textContent = cadastro ? 'Já tem conta? Entrar' : 'Ainda não tem conta? Criar conta';
     senha.autocomplete = cadastro ? 'new-password' : 'current-password';
@@ -43,7 +42,7 @@
   }
 
   window.addEventListener('perfil-alterado', () => {
-    atualizarPerfil(localStorage.getItem(chaveSessao));
+    try { atualizarPerfil(window.usuariosDemo.atual().usuario); } catch { atualizarPerfil(null); }
   });
 
   document.querySelectorAll('[data-conta]').forEach((botao) => {
@@ -65,22 +64,17 @@
     dialog.querySelectorAll('button, input').forEach((elemento) => { elemento.disabled = true; });
     mensagem.textContent = 'Aguarde…';
     try {
-      if (!window.crypto?.subtle) throw new Error('Abra o site em HTTPS ou localhost para usar as contas locais.');
       const nome = usuario.value.trim().toLowerCase();
       if (modo === 'cadastrar') {
         await window.usuariosDemo.cadastrar(nome, senha.value);
       } else if (!await window.usuariosDemo.validar(nome, senha.value)) {
-        throw new Error('Usuário ou senha incorretos. Cadastre-se se ainda não tiver uma conta neste navegador.');
+        throw new Error('Usuário ou senha incorretos. Cadastre-se se ainda não tiver uma conta.');
       }
-      // Apenas o nome é mantido para restaurar a interface, nunca a senha.
-      localStorage.setItem(chaveSessao, nome);
       atualizarPerfil(nome);
       dialog.close();
       window.location.hash = 'feed';
     } catch (erro) {
-      mensagem.textContent = erro instanceof DOMException
-        ? 'Não foi possível acessar os dados locais. Verifique as permissões de armazenamento do navegador.'
-        : erro.message;
+      mensagem.textContent = erro.message;
     } finally {
       ocupado = false;
       dialog.querySelectorAll('button, input').forEach((elemento) => { elemento.disabled = false; });
@@ -98,22 +92,19 @@
     });
   });
 
-  document.querySelector('#conta-sair').addEventListener('click', (evento) => {
+  document.querySelector('#conta-sair').addEventListener('click', async (evento) => {
     evento.preventDefault();
     try {
-      localStorage.removeItem(chaveSessao);
-    } catch {
-      window.alert('Não foi possível sair. Verifique as permissões de armazenamento do navegador.');
+      await window.usuariosDemo.sair();
+    } catch (erro) {
+      window.alert(erro.message);
       return;
     }
     atualizarPerfil(null);
     window.location.hash = '';
   });
-  try {
-    const salvo = localStorage.getItem(chaveSessao);
-    const nome = salvo ? window.usuariosDemo.obterUsuario(salvo)?.usuario : null;
-    atualizarPerfil(nome);
-  } catch {
-    atualizarPerfil(null);
-  }
+  atualizarPerfil(null);
+  window.usuariosDemo.sessao().then(perfil => atualizarPerfil(perfil?.usuario || null)).catch(erro => {
+    document.querySelector('.composer small').textContent = erro.message;
+  });
 })();
